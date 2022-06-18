@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Library_Management_System.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="background-color: burlywood; text-decoration-color: initial; align-items: center; justify-content: center; padding-top: 25px; padding-left: 450px; color:maroon">Category Details</h2>
+
+<p style="background-color:darkgray;font-size:20px; color:black; text-decoration-color:initial;  align-items : center; justify-content: center; padding-top: 25px; padding-left: 500px ">
+    @Html.ActionLink("Create New", "Create", null, new { @style = "color:darkgreen" })
+</p>
+<table class="table" style="background-color: aquamarine; align-items: center; justify-content: center; padding-top: 25px; padding-left: 100px ">
+    <tr>
+        <th style="background-color: aliceblue; color: coral; font-size: 20px; text-decoration-color: initial; align-items: center; ">
+            @Html.DisplayNameFor(model => model.catname)
+        </th>
+        <th style="background-color: aliceblue; color: coral; font-size: 20px; text-decoration-color: initial; align-items: center; ">
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.catname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
